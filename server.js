@@ -6,7 +6,7 @@ var app = express();
 var mongoose = require('mongoose');
 require('./server/config/mongoose.js');
 
-mongoose.connect('mongodb://localhost/beer_db');
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/beer_db');
 
 app.use(express.static(__dirname + '/public/dist/public'));
 
